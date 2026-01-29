@@ -1,0 +1,129 @@
+# Carbon Emission Prediction in Data Centres Using Deep Recurrent Neural Networks Optimised by Ninja Optimisation Algorithm
+
+## Anwesha Singh  
+Department of Computer Science and Engineering  
+School of Computer Science and Engineering  
+Manipal University Jaipur, Rajasthan, India  
+
+---
+
+## Abstract
+
+The rapid expansion of data centres has resulted in a substantial increase in global energy consumption and associated carbon emissions, raising serious concerns regarding environmental sustainability. Accurate prediction of energy usage and carbon emissions in data centres is therefore essential for effective energy management and regulatory compliance. This repository presents a deep learning–based framework for real-time carbon emission prediction using multivariate time-series sensor data obtained from data centre environments.
+
+The proposed approach employs a stacked and bidirectional Long Short-Term Memory (LSTM) recurrent neural network to capture complex temporal dependencies in electrical, thermal, and computational metrics. To overcome the limitations of manual and conventional hyperparameter tuning methods, the model is optimised using the Ninja Optimisation Algorithm (NiOA), a recently introduced metaheuristic inspired by the tactical balance of exploration and exploitation observed in ninja strategies.
+
+Experimental results demonstrate that the NiOA-optimised recurrent model achieves superior convergence behaviour and lower validation error compared to baseline configurations, indicating strong generalisation capability. The proposed framework provides a robust and scalable solution for proactive energy monitoring and carbon emission forecasting in modern data centres.
+
+---
+
+## Keywords
+
+Carbon Emission Prediction · Data Centres · Deep Learning · Recurrent Neural Networks · Long Short-Term Memory · Ninja Optimisation Algorithm · Time-Series Forecasting
+
+---
+
+## 1. Introduction
+
+The increasing dependence on cloud computing, artificial intelligence, and digital services has led to a rapid growth in the number and scale of data centres worldwide. While data centres form the backbone of modern digital infrastructure, they are also responsible for approximately 1–2% of global electricity consumption, contributing significantly to carbon dioxide emissions.
+
+Traditional energy estimation techniques and statistical forecasting models are inadequate for capturing the non-linear and time-dependent behaviour of data centre workloads. Recent advances in deep learning, particularly recurrent neural networks, have shown strong potential in modelling such complex temporal dynamics. However, the performance of deep recurrent architectures is highly sensitive to hyperparameter selection, making manual tuning both inefficient and suboptimal.
+
+This project addresses these challenges by integrating a deep recurrent neural network with an automated hyperparameter optimisation strategy based on the Ninja Optimisation Algorithm. The objective is to develop an accurate, scalable, and data-driven framework for predicting carbon emissions from real-time data centre sensor streams.
+
+---
+
+## 2. Related Work
+
+Prior research in data centre energy forecasting has explored classical machine learning techniques such as decision trees, support vector machines, and linear regression models. Although these methods are computationally efficient, they fail to model long-term temporal dependencies inherent in sequential energy consumption data.
+
+Long Short-Term Memory (LSTM) networks have been widely adopted for time-series forecasting due to their gating mechanisms, which effectively mitigate the vanishing gradient problem. Bidirectional and stacked LSTM architectures further enhance predictive performance by capturing both past and future temporal context.
+
+Recent studies have highlighted the importance of automated hyperparameter optimisation for deep learning models. Metaheuristic algorithms such as Genetic Algorithms, Particle Swarm Optimisation, and Harris Hawks Optimisation have been applied with varying success. The Ninja Optimisation Algorithm (NiOA), a recent addition to this class of methods, has demonstrated strong convergence properties and superior performance in energy and emission forecasting tasks.
+
+---
+
+## 3. Problem Statement
+
+Conventional carbon footprint estimation methods fail to accurately capture the dynamic and time-evolving power consumption patterns observed in data centres. Despite the availability of advanced deep learning architectures, real-time carbon emission prediction remains challenging due to high-dimensional sensor data, complex temporal dependencies, and inefficient hyperparameter tuning.
+
+Manual hyperparameter selection is time-consuming, computationally expensive, and prone to suboptimal solutions. Therefore, there is a need for an automated, scalable, and accurate predictive framework capable of operating on real-time data centre sensor streams.
+
+---
+
+## 4. Objectives
+
+The primary objectives of this project are as follows:
+
+- To preprocess and engineer features from multi-sensor data centre datasets for time-series forecasting.
+- To design and implement a stacked and bidirectional LSTM-based recurrent neural network for carbon emission prediction.
+- To integrate an automated hyperparameter optimisation strategy using the Ninja Optimisation Algorithm.
+- To evaluate the proposed model in terms of convergence behaviour, generalisation ability, and prediction accuracy.
+- To provide a reproducible and extensible research framework for sustainable data centre operations.
+
+---
+
+## 5. Methodology
+
+### 5.1 Data Preprocessing and Feature Engineering
+
+Raw sensor data is first processed to ensure temporal consistency and data quality. Missing values are forward-filled to preserve continuity, duplicate records are removed, and statistical outliers are eliminated using z-score thresholding. Time-based features such as hour of day and day of week are extracted, and lag features are introduced to incorporate historical context.
+
+All numerical features are standardised to zero mean and unit variance to ensure stable neural network training.
+
+### 5.2 Sequence Generation
+
+A sliding window approach is employed to convert tabular sensor data into supervised learning sequences. Each input sample consists of 10 consecutive timesteps, with the target being the energy (carbon emission proxy) value at the subsequent timestep.
+
+### 5.3 Model Architecture
+
+The predictive model is built using a deep recurrent architecture comprising:
+
+- A bidirectional LSTM layer for contextual temporal learning.
+- Stacked LSTM layers to capture hierarchical temporal patterns.
+- Dropout regularisation and batch normalisation to reduce overfitting.
+- Global max pooling and fully connected layers for regression output.
+
+### 5.4 Ninja Optimisation Algorithm
+
+The Ninja Optimisation Algorithm is used to automatically tune key hyperparameters, including the number of LSTM layers, number of units, dropout rate, learning rate, and batch size. The algorithm adaptively balances exploration and exploitation through probabilistic phase selection, enabling efficient search of the hyperparameter space.
+
+Each candidate solution is evaluated by training the LSTM model and computing validation loss, which serves as the fitness function.
+
+---
+
+## 6. Implementation Details
+
+The entire pipeline is implemented in Python using the following libraries:
+
+- TensorFlow and Keras for deep learning model development.
+- Pandas and NumPy for data preprocessing and numerical operations.
+- Scikit-learn for feature scaling and evaluation utilities.
+- Matplotlib for visualisation of convergence behaviour.
+
+The codebase is modularised into separate files for preprocessing, model definition, optimisation, training, and evaluation, ensuring reproducibility and ease of experimentation.
+
+---
+
+## 7. Results and Discussion
+
+Experimental results indicate that the NiOA-optimised LSTM model converges faster and achieves lower validation error compared to non-optimised configurations. The convergence curve exhibits a monotonic decrease in fitness values, with significant improvements during early exploration phases followed by refined exploitation.
+
+The optimised model demonstrates strong generalisation capability, with a reduced gap between training and validation losses, indicating effective regularisation and robust learning dynamics.
+
+---
+
+## 8. Conclusion and Future Work
+
+This project presents a deep learning–based framework for carbon emission prediction in data centres, combining stacked and bidirectional LSTM networks with the Ninja Optimisation Algorithm for automated hyperparameter tuning. The proposed approach achieves accurate and stable predictions, making it suitable for real-time energy monitoring and sustainable data centre management.
+
+Future work will focus on incorporating external variables such as weather conditions and grid carbon intensity, exploring attention-based and dual-path architectures, and deploying the model in a real-time monitoring environment.
+
+---
+
+## References
+
+1. Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. *Neural Computation*, 9(8), 1735–1780.  
+2. Graves, A., & Schmidhuber, J. (2005). Framewise phoneme classification with bidirectional LSTM networks. *ICASSP Proceedings*.  
+3. Ben Ghorbal, A., et al. (2025). Predicting carbon dioxide emissions using deep learning and Ninja optimisation algorithm. *Scientific Reports*.  
+4. Yassen, M. A., et al. (2025). Renewable energy forecasting using Ninja optimisation algorithm. *Scientific Reports*.

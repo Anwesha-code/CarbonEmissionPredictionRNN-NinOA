@@ -1,0 +1,37 @@
+# data_preprocessing.py
+
+import pandas as pd
+import numpy as np
+from scipy import stats
+from config import NUMERIC_COLUMNS, TRAIN_RATIO, VAL_RATIO
+
+def load_and_prepare_data(path):
+    df = pd.read_excel(path)
+
+    df['timestamp'] = pd.to_datetime(df['timestamp'])
+    df.sort_values('timestamp', inplace=True)
+    df.reset_index(drop=True, inplace=True)
+
+    df.ffill(inplace=True)
+    df.drop_duplicates(inplace=True)
+
+    df['hour'] = df['timestamp'].dt.hour
+    df['dayofweek'] = df['timestamp'].dt.dayofweek
+
+    z_scores = np.abs(stats.zscore(df[NUMERIC_COLUMNS]))
+    df = df[(z_scores < 3).all(axis=1)]
+
+    df['voltage_lag1'] = df['voltage'].shift(1)
+    df.dropna(inplace=True)
+
+    return df.reset_index(drop=True)
+
+def split_data(df):
+    train_size = int(len(df) * TRAIN_RATIO)
+    val_size = int(len(df) * VAL_RATIO)
+
+    train = df[:train_size].copy()
+    val = df[train_size:train_size + val_size].copy()
+    test = df[train_size + val_size:].copy()
+
+    return train, val, test
