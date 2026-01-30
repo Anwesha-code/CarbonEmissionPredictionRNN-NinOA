@@ -1,0 +1,53 @@
+# evaluate.py
+
+import numpy as np
+import matplotlib.pyplot as plt
+from sklearn.metrics import (
+    mean_absolute_error,
+    mean_squared_error,
+    r2_score
+)
+
+def evaluate_regression_model(model, X, y, dataset_name="Test"):
+    """
+    Computes MAE, RMSE, and R² for a trained regression model.
+    """
+
+    # Generate predictions
+    y_pred = model.predict(X, verbose=0).flatten()
+
+    # Metrics
+    mae = mean_absolute_error(y, y_pred)
+    rmse = np.sqrt(mean_squared_error(y, y_pred))
+    r2 = r2_score(y, y_pred)
+
+    print(f"\n📊 Final Evaluation on {dataset_name} Set")
+    print("-" * 50)
+    print(f"Mean Absolute Error (MAE):  {mae:.4f}")
+    print(f"Root Mean Squared Error (RMSE): {rmse:.4f}")
+    print(f"R² Score: {r2:.4f}")
+
+    return {
+        "MAE": mae,
+        "RMSE": rmse,
+        "R2": r2
+    }
+
+
+def plot_predictions(y_true, y_pred, save_path=None):
+    """
+    Plots true vs predicted values for qualitative analysis.
+    """
+
+    plt.figure(figsize=(8, 5))
+    plt.plot(y_true, label="Actual", linewidth=2)
+    plt.plot(y_pred, label="Predicted", linewidth=2)
+    plt.xlabel("Time Steps")
+    plt.ylabel("Energy / Carbon Emission Proxy")
+    plt.title("Actual vs Predicted Carbon Emissions")
+    plt.legend()
+    plt.grid(True)
+
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches="tight")
+    plt.show()

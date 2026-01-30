@@ -1,0 +1,43 @@
+# config.py
+
+import os
+
+# ================= BASE DIRECTORY =================
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# ================= PATHS =================
+DATA_PATH = os.path.join(
+    BASE_DIR,
+    "data",
+    "EXCELdata_center_carbon_emission_dataset_75000.xlsx"
+)
+
+RESULTS_DIR = os.path.join(BASE_DIR, "results")
+os.makedirs(RESULTS_DIR, exist_ok=True)
+
+# ================= RANDOM SEED =================
+RANDOM_SEED = 42
+
+# ================= SEQUENCE SETTINGS =================
+SEQUENCE_LENGTH = 10
+TARGET_COLUMN = "energy"
+
+# ================= NUMERICAL FEATURES =================
+NUMERIC_COLUMNS = [
+    'voltage', 'current', 'power', 'frequency', 'energy', 'power_factor',
+    'esp32_temperature', 'cpu_temperature', 'gpu_temperature',
+    'cpu_usage_percent', 'cpu_power_watts',
+    'gpu_usage_percent', 'gpu_power_watts',
+    'ram_usage_percent', 'ram_power_watts'
+]
+
+# ================= DATA SPLIT =================
+TRAIN_RATIO = 0.70
+VAL_RATIO = 0.15
+
+# ================= NINJA OA =================
+N_AGENTS = 12
+MAX_ITERATIONS = 12
+EXPLORATION_FACTOR = 2.0
+EXPLOITATION_FACTOR = 0.5
+
