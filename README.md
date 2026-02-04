@@ -1,6 +1,6 @@
 ## CarbonEmissionPredictionRNN-NinOA
 
-### E:\carbon_emission_prediction\
+### carbon_emission_prediction
 
 -  main.ipynb                 -Runs everything
 -  config.py                  -Paths + constants
