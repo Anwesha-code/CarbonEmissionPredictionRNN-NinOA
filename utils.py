@@ -37,3 +37,17 @@ def create_sequences(data, target, seq_len):
         y.append(target[i + seq_len])
 
     return np.array(X, dtype=np.float32), np.array(y, dtype=np.float32)
+
+def to_python_types(d):
+    """
+    Convert NumPy scalar types inside a dictionary
+    to native Python types (int, float).
+    Needed for JSON serialization.
+    """
+    clean = {}
+    for k, v in d.items():
+        if hasattr(v, "item"):   # NumPy scalar (np.int32, np.float64, etc.)
+            clean[k] = v.item()
+        else:
+            clean[k] = v
+    return clean

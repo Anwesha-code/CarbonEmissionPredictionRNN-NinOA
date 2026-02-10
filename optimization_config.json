@@ -1,0 +1,7 @@
+{
+    "subset_ratio": 0.3,
+    "subset_selection": "first_n_samples_after_sequence_generation",
+    "optimization_epochs": 15,
+    "optimization_patience": 3,
+    "time_limit_seconds": 420
+}

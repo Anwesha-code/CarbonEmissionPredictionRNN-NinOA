@@ -3,11 +3,33 @@ import tensorflow as tf
 from tensorflow.keras.callbacks import EarlyStopping
 from tensorflow.keras import backend as K
 import gc
+import time
 
 from models import create_lstm_model  
 
 OPT_EPOCHS = 15
 OPT_PATIENCE = 3
+
+class TimeLimitCallback(tf.keras.callbacks.Callback):
+  
+
+    def __init__(self, max_seconds=120):
+        super().__init__()
+        self.max_seconds = max_seconds
+        self.start_time = None
+
+    def on_train_begin(self, logs=None):
+        self.start_time = time.time()
+        tf.print("Time limit callback active")
+
+    def on_batch_end(self, batch, logs=None):
+        if time.time() - self.start_time > self.max_seconds:
+            self.model.stop_training = True
+            
+    
+
+  
+
 
 def objective_function_lstm(params, X_train, y_train, X_val, y_val):
     model = None 
@@ -25,15 +47,18 @@ def objective_function_lstm(params, X_train, y_train, X_val, y_val):
             restore_best_weights=True,
             verbose=0
         )
-
+        time_limit = TimeLimitCallback(max_seconds=420)  
+        
         history = model.fit(
             X_train, y_train,
             validation_data=(X_val, y_val),
             epochs=OPT_EPOCHS,
             batch_size=params['batch_size'],
-            callbacks=[early_stop],
+            callbacks=[early_stop, time_limit],
             verbose=0
         )
+
+        
 
         best_val_loss = min(history.history['val_loss'])
 

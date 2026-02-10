@@ -1,6 +1,15 @@
 # config.py
 import os
 
+# =========================
+# Optimisation configuration
+# =========================
+OPT_SUBSET_RATIO = 0.30
+OPT_EPOCHS = 15
+OPT_PATIENCE = 3
+OPT_TIME_LIMIT = 420
+
+
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 DATA_PATH = os.path.join(
@@ -26,7 +35,7 @@ VAL_RATIO = 0.15
 RANDOM_SEED = 42
 
 # ================= NINJA OA =================
-N_AGENTS = 12
-MAX_ITERATIONS = 12
+N_AGENTS = 6
+MAX_ITERATIONS = 6
 EXPLORATION_FACTOR = 2.0
 EXPLOITATION_FACTOR = 0.5

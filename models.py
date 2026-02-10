@@ -1,4 +1,3 @@
-# models.py
 import numpy as np
 import time
 from typing import Dict, Tuple, List, Callable
@@ -9,18 +8,15 @@ from tensorflow.keras.layers import (
     BatchNormalization, GlobalMaxPooling1D, Dense
 )
 
+
 class NinjaOptimizationAlgorithm:
-    """
-    Original Ninja Optimization Algorithm (NiOA)
-    – logic preserved, checkpoints removed.
-    """
 
     def __init__(
         self,
         objective_function: Callable,
         bounds: Dict[str, Tuple],
-        n_agents: int = 12,
-        max_iterations: int = 12,
+        n_agents: int = 6,
+        max_iterations: int = 6,
         exploration_factor: float = 2.0,
         exploitation_factor: float = 0.5,
         verbose: bool = True
@@ -57,6 +53,7 @@ class NinjaOptimizationAlgorithm:
                     agent[param] = float(10 ** np.random.uniform(log_min, log_max))
                 elif kind == 'categorical':
                     agent[param] = np.random.choice(values)
+
             agents.append(agent)
         return agents
 
@@ -106,7 +103,6 @@ class NinjaOptimizationAlgorithm:
         print("Starting Ninja Optimization Algorithm...\n")
         start_time = time.time()
 
-        # Initial evaluation
         for i, agent in enumerate(self.agents):
             self.fitness[i] = self.objective_function(agent)
             if self.fitness[i] < self.best_fitness:
@@ -115,13 +111,16 @@ class NinjaOptimizationAlgorithm:
 
         self.convergence_curve.append(self.best_fitness)
 
-        # Main loop
         for iteration in range(self.max_iterations):
             if self.verbose:
-                print(f"Iteration {iteration + 1}/{self.max_iterations}")
+                print(f"\nIteration {iteration + 1}/{self.max_iterations}")
 
             for i, agent in enumerate(self.agents):
-                phase = 'exploitation' if self.best_agent and np.random.rand() < (0.3 + 0.6 * iteration / self.max_iterations) else 'exploration'
+                phase = (
+                    'exploitation'
+                    if self.best_agent and np.random.rand() < (0.3 + 0.6 * iteration / self.max_iterations)
+                    else 'exploration'
+                )
 
                 candidate = (
                     self._exploitation_phase(agent, self.best_agent, iteration)
@@ -140,25 +139,26 @@ class NinjaOptimizationAlgorithm:
                     self.best_agent = candidate.copy()
 
             self.convergence_curve.append(self.best_fitness)
-            
+
+            if self.verbose:
+                print("  Best validation loss so far:", self.best_fitness)
+                print("  Best hyperparameters so far:")
+                for k, v in self.best_agent.items():
+                    print(f"    {k}: {v}")
 
         elapsed = (time.time() - start_time) / 3600
         print(f"\nOptimization completed in {elapsed:.2f} hours")
 
         if self.best_agent is None:
             raise RuntimeError(
-                    "NinOA failed: no valid hyperparameter configuration was found. "
-                    "Check objective_function_lstm for errors."
+                "NinOA failed: no valid hyperparameter configuration was found. "
+                "Check objective_function_lstm for errors."
             )
 
         return self.best_agent, self.best_fitness, self.convergence_curve
 
 
 def create_lstm_model(params: Dict, seq_len: int, num_feats: int) -> Sequential:
-    """
-    Original LSTM architecture (preserved).
-    """
-
     model = Sequential(name='LSTM_NiOA')
     model.add(Input(shape=(seq_len, num_feats)))
 
@@ -186,4 +186,3 @@ def create_lstm_model(params: Dict, seq_len: int, num_feats: int) -> Sequential:
 
     model.compile(loss='mse', optimizer=optimizer, metrics=['mae'])
     return model
-
