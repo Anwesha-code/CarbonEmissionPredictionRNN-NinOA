@@ -1,0 +1,12 @@
+{
+    "horizon": 60,
+    "sequence_length": 120,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "random_seed": 42,
+    "opt_subset_ratio": 0.3,
+    "opt_iterations": 6,
+    "n_agents": 6,
+    "final_epochs": 40,
+    "final_patience": 7
+}
