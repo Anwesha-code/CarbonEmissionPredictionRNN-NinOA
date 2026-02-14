@@ -123,6 +123,33 @@ Future work will focus on incorporating external variables such as weather condi
 
 ## References
 
+
+
+CarbonEmissionPredictionRNN-NinOA
+carbon_emission_prediction
+main.ipynb -Runs everything
+
+config.py -Paths + constants
+
+data_preprocessing.py -Data cleaning + splitting
+
+utils.py -Sequences + scaling
+
+models.py -LSTM + NiOA (intact logic)
+
+train.py -Objective + optimisation run
+
+evaluate.py -Plots + saving results
+
+data/
+
+data_center_carbon_emission_dataset.xlsx
+results/
+
+convergence.png
+final_model.h5
+README.md
+
 1. Hochreiter, S., & Schmidhuber, J. (1997). Long short-term memory. *Neural Computation*, 9(8), 1735–1780.  
 2. Graves, A., & Schmidhuber, J. (2005). Framewise phoneme classification with bidirectional LSTM networks. *ICASSP Proceedings*.  
 3. Ben Ghorbal, A., et al. (2025). Predicting carbon dioxide emissions using deep learning and Ninja optimisation algorithm. *Scientific Reports*.  
