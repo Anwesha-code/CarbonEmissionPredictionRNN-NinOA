@@ -84,21 +84,21 @@ Preprocessing steps include:
 
 ## Project Structure
 
-─ config.py
-─ data_preprocessing.py
-─ models.py
-─ train.py
-─ evaluate.py
-─ utils.py
-─ data/
-    ─dataset
-    ─splits/
-─ results/
-    ─ models/
-    ─ predictions/
-    ─ plots/
-    ─ metrics.json
-─ notebooks/
+- config.py
+- data_preprocessing.py
+- models.py
+- train.py
+- evaluate.py
+- utils.py
+- data/
+    - dataset
+    - splits/
+- results/
+    - models/
+    - predictions/
+    - plots/
+    - metrics.json
+- notebooks/
 
 
 ## Methodology
