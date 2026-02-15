@@ -25,8 +25,6 @@ This project has tried to work on addresses challenges using:
 - Multi-horizon cumulative forecasting formulation
 - Strict reproducibility and anti-leakage design
 
----
-
 ## Key Works
 
 The major works in this project are:
@@ -35,9 +33,9 @@ The major works in this project are:
 
    Instead of predicting micro-level instantaneous fluctuations, the target is reformulated as:
 
-   \[
+   \
    ΔE_k(t) = E(t+k) - E(t)
-   \]
+   \
 
    This converts noisy short-term prediction into cumulative forecasting across multiple horizons (1 second to 15 minutes), improving signal strength and stability.
 
@@ -86,19 +84,21 @@ Preprocessing steps include:
 
 ## Project Structure
 
-
-├── config.py
-├── data_preprocessing.py
-├── models.py
-├── train.py
-├── evaluate.py
-├── utils.py
-├── results/
-│ ├── models/
-│ ├── predictions/
-│ ├── plots/
-│ └── metrics.json
-└── notebooks/
+─ config.py
+─ data_preprocessing.py
+─ models.py
+─ train.py
+─ evaluate.py
+─ utils.py
+─ data/
+    ─dataset
+    ─splits/
+─ results/
+    ─ models/
+    ─ predictions/
+    ─ plots/
+    ─ metrics.json
+─ notebooks/
 
 
 ## Methodology
