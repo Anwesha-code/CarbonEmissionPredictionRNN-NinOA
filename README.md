@@ -2,6 +2,9 @@
 
 ## Overview
 
+https://anwesha-code.github.io/PBL4-Midterm-Presentation/
+
+
 This project aims to present a reproducible deep learning framework for short-term energy increment prediction in data centre environments. The proposed project uses Bidirectional Deep Recurrent Neural Network (DRNN) architecture, optimised using the Ninja Optimisation Algorithm (NiOA), to work on complex temporal dependencies in multi-sensor energy data.
 
 The primary objective of this work is to design a robust and leakage-free forecasting pipeline capable of multi-horizon prediction while maintaining strict time-series integrity.
