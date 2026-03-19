@@ -30,7 +30,7 @@ os.makedirs(RESULTS_DIR, exist_ok=True)
 TARGET_COLUMN = "energy_delta"
 
 # ================= SEQUENCE =================
-SEQUENCE_LENGTH = 10
+SEQUENCE_LENGTH = 120
 
 # ================= SPLIT =================
 TRAIN_RATIO = 0.70
@@ -49,8 +49,6 @@ EXPLOITATION_FACTOR = 0.5
 # ================= HORIZON =================
 FORECAST_HORIZON = 60
 
-# ================= SEQUENCE =================
-SEQUENCE_LENGTH = 120
 
 
 # NiOA Hyperparameter Search Space
