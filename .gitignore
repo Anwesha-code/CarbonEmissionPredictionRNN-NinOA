@@ -1,0 +1,36 @@
+# .gitignore
+
+# Data files — never commit raw data to version control
+data/raw/*.csv
+data/raw/*.xlsx
+data/processed/
+
+# Model weights — large binary files
+results/nioa_drnn/*/model/*.h5
+results/nioa_drnn/*/model/*.keras
+
+# Numpy arrays — regenerated from splits
+results/splits/
+results/nioa_drnn/*/predictions/
+results/benchmark/*/y_test_pred.npy
+results/benchmark/*/y_test_true.npy
+
+# Python artefacts
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+
+# Jupyter artefacts
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Environment
+.env
+*.pkl
+!results/splits/*/scaler.pkl
+!results/nioa_drnn/*/scaler.pkl
+
+*.csv
