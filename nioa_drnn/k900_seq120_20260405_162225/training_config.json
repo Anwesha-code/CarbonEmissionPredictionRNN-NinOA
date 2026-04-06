@@ -1,0 +1,24 @@
+{
+    "horizon_k": 900,
+    "sequence_length": 120,
+    "gap_tolerance": 2.0,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "random_seed": 42,
+    "final_batch_size": 16,
+    "opt_subset_ratio": 0.3,
+    "n_agents": 6,
+    "max_iterations": 6,
+    "final_epochs": 40,
+    "final_patience": 7,
+    "best_params": {
+        "lstm_layers": 2,
+        "units": 128,
+        "dropout": 0.4718765670249522,
+        "optimizer": "adamw",
+        "learning_rate": 0.000427312840161825,
+        "batch_size": 32
+    },
+    "best_nioa_loss": 1.7103417121688835e-05,
+    "completed_at": "2026-04-05T21:11:30.620931"
+}
