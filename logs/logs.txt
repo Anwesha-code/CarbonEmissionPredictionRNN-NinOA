@@ -1,0 +1,770 @@
+\n=================================================================
+  Horizon 1/4 : k = 60 s   14:41:27   0.00 h elapsed
+=================================================================
+\n[3a] Preprocessing  (k=60s, gap=2.0x, cap=99.5th pctile, log1p=True)
+  Target capped at 99.5th pctile = 417.2420 kWh
+  log1p transform applied  (new range: 0.0000 to 6.0361)
+
+==============================================================
+  Preprocessing summary  (k = 60 s, tolerance = 2.0x)
+==============================================================
+  Rows in raw CSV          :  3,178,051
+  Gap-corrupted targets    :     10,454  (elapsed > 120 s)
+  Counter-reset targets    :    152,859  (delta_E < 0)
+  Dropped for NaN          :    163,314
+  Removed by Z-score       :    336,462  (features only)
+  Capped at 99.5th pctile :          0  (cap = 417.2420 kWh)
+  log1p transform applied  :        yes
+  Final usable rows        :  2,678,196
+
+  Target  energy_delta_k  [log1p(kWh)]:
+    mean  =     0.097706
+    std   =     0.755153
+    min   =     0.000000
+    max   =     6.036060
+==============================================================
+
+[3b] Splitting
+  train 1,874,737  val   401,729  test   401,730  — no leakage
+[3c] Scaling + sequence generation
+  features (17): ['weekday', 'voltage', 'current', 'power', 'frequency', 'power_factor', 'sensor_temperature', 'cpu_usage_percent', 'WORKSTATION_CPU_POWER', 'WORKSTATION_CPU_TEMP', 'WORKSTATION_GPU', 'WORKSTATION_GPU_POWER', 'WORKSTATION_GPU_TEMP', 'WORKSTATION_RAM', 'ram_power_watts', 'hour', 'voltage_lag1']
+  X_train (1874617, 120, 17)  X_val (401609, 120, 17)  X_test (401610, 120, 17)
+  RAM (train seq) ≈ 15.30 GB   GPU per batch ≈ 0.1 MB
+[3d] Saving canonical splits
+  splits → D:\pipeline5_2\results\splits\horizon_60
+[3e] NiOA optimisation  (agents=6  iter=6  subset=30%  limit=1800s/trial  loss=huber)
+Starting Ninja Optimisation Algorithm...
+
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+Iteration 1/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Iteration 2/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Iteration 3/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Iteration 4/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Iteration 5/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Iteration 6/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+  Best validation loss so far : 0.00000702
+  Best hyperparameters so far :
+    lstm_layers: 3
+    units: 64
+    dropout: 0.3061753482887407
+    optimizer: adamw
+    learning_rate: 0.000466530301221283
+    batch_size: 32
+
+Optimisation completed in 23.46 hours
+  Best NiOA val loss : 0.00000702
+  Best params : {'lstm_layers': 3, 'units': 64, 'dropout': 0.3061753482887407, 'optimizer': 'adamw', 'learning_rate': 0.000466530301221283, 'batch_size': 32}
+[3f] Final training  (batch=16  epochs=40  patience=7  loss=huber)
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 128)         41984     
+ l)                                                              
+                                                                 
+ lstm_1 (LSTM)               (None, 120, 64)           49408     
+                                                                 
+ dropout (Dropout)           (None, 120, 64)           0         
+                                                                 
+ lstm_2 (LSTM)               (None, 120, 64)           33024     
+                                                                 
+ dropout_1 (Dropout)         (None, 120, 64)           0         
+                                                                 
+ batch_normalization (BatchN  (None, 120, 64)          256       
+ ormalization)                                                   
+                                                                 
+ global_max_pooling1d (Globa  (None, 64)               0         
+ lMaxPooling1D)                                                  
+                                                                 
+ dense (Dense)               (None, 64)                4160      
+                                                                 
+ dropout_2 (Dropout)         (None, 64)                0         
+                                                                 
+ dense_1 (Dense)             (None, 25)                1625      
+                                                                 
+ dense_2 (Dense)             (None, 1)                 26        
+                                                                 
+=================================================================
+Total params: 130,483
+Trainable params: 130,355
+Non-trainable params: 128
+_________________________________________________________________
+Epoch 1/40
+117163/117163 [==============================] - 8478s 72ms/step - loss: 1.0369e-04 - mae: 0.0036 - val_loss: 6.6753e-06 - val_mae: 0.0024
+Epoch 2/40
+117163/117163 [==============================] - 2807s 24ms/step - loss: 7.8542e-06 - mae: 0.0030 - val_loss: 6.6988e-06 - val_mae: 0.0030
+Epoch 3/40
+117163/117163 [==============================] - 2811s 24ms/step - loss: 7.8554e-06 - mae: 0.0030 - val_loss: 7.0135e-06 - val_mae: 0.0033
+Epoch 4/40
+117163/117163 [==============================] - 3182s 27ms/step - loss: 7.8553e-06 - mae: 0.0030 - val_loss: 6.6443e-06 - val_mae: 0.0024
+Epoch 5/40
+117163/117163 [==============================] - 3545s 30ms/step - loss: 7.8564e-06 - mae: 0.0030 - val_loss: 6.7426e-06 - val_mae: 0.0030
+Epoch 6/40
+117163/117163 [==============================] - 3542s 30ms/step - loss: 7.8567e-06 - mae: 0.0030 - val_loss: 6.6818e-06 - val_mae: 0.0029
+Epoch 7/40
+117163/117163 [==============================] - 3542s 30ms/step - loss: 7.8553e-06 - mae: 0.0030 - val_loss: 6.5919e-06 - val_mae: 0.0027
+Epoch 8/40
+117163/117163 [==============================] - 3540s 30ms/step - loss: 7.8576e-06 - mae: 0.0030 - val_loss: 6.6136e-06 - val_mae: 0.0028
+Epoch 9/40
+117163/117163 [==============================] - 3546s 30ms/step - loss: 7.8566e-06 - mae: 0.0030 - val_loss: 6.8370e-06 - val_mae: 0.0031
+Epoch 10/40
+117163/117163 [==============================] - 3551s 30ms/step - loss: 7.8557e-06 - mae: 0.0030 - val_loss: 6.5910e-06 - val_mae: 0.0027
+Epoch 11/40
+117163/117163 [==============================] - 3546s 30ms/step - loss: 7.8577e-06 - mae: 0.0030 - val_loss: 6.5893e-06 - val_mae: 0.0026
+Epoch 12/40
+117163/117163 [==============================] - 3545s 30ms/step - loss: 7.8572e-06 - mae: 0.0030 - val_loss: 6.9986e-06 - val_mae: 0.0033
+Epoch 13/40
+117163/117163 [==============================] - 3549s 30ms/step - loss: 7.8574e-06 - mae: 0.0030 - val_loss: 6.5915e-06 - val_mae: 0.0026
+Epoch 14/40
+117163/117163 [==============================] - 3551s 30ms/step - loss: 7.8579e-06 - mae: 0.0030 - val_loss: 6.5928e-06 - val_mae: 0.0026
+Epoch 15/40
+117163/117163 [==============================] - 3551s 30ms/step - loss: 7.8556e-06 - mae: 0.0030 - val_loss: 7.2879e-06 - val_mae: 0.0035
+Epoch 16/40
+117163/117163 [==============================] - 3550s 30ms/step - loss: 7.8576e-06 - mae: 0.0030 - val_loss: 6.6083e-06 - val_mae: 0.0028
+Epoch 17/40
+117163/117163 [==============================] - 3553s 30ms/step - loss: 7.8584e-06 - mae: 0.0030 - val_loss: 6.6638e-06 - val_mae: 0.0029
+Epoch 18/40
+117161/117163 [============================>.] - ETA: 0s - loss: 7.8576e-06 - mae: 0.0030Restoring model weights from the end of the best epoch: 11.
+117163/117163 [==============================] - 3541s 30ms/step - loss: 7.8576e-06 - mae: 0.0030 - val_loss: 7.1055e-06 - val_mae: 0.0033
+Epoch 18: early stopping
+[3g] Saving model
+WARNING:tensorflow:HDF5 format does not save weights of `optimizer_experimental.Optimizer`, your optimizer will be recompiled at loading time.
+[3h] Evaluating on test set
+Metric      Value
+   MAE  44.259638
+  RMSE 135.847824
+    R2  -0.118744
+ sMAPE 107.235549
+[3i] Saving plots
+  5 plots → D:\pipeline5_2\results\nioa_drnn\k60_seq120_20260408_141156\plots
+
+  DONE k=60s  MAE=44.2596 kWh  RMSE=135.8478 kWh  R2=-0.1187  [42.16 h total]
+=================================================================
+\n=================================================================
+  Horizon 2/4 : k = 300 s   08:51:43   42.17 h elapsed
+=================================================================
+\n[3a] Preprocessing  (k=300s, gap=2.0x, cap=99.5th pctile, log1p=True)
+  Target capped at 99.5th pctile = 417.4370 kWh
+  log1p transform applied  (new range: 0.0000 to 6.0365)
+
+==============================================================
+  Preprocessing summary  (k = 300 s, tolerance = 2.0x)
+==============================================================
+  Rows in raw CSV          :  3,178,051
+  Gap-corrupted targets    :     13,070  (elapsed > 600 s)
+  Counter-reset targets    :    170,459  (delta_E < 0)
+  Dropped for NaN          :    183,530
+  Removed by Z-score       :    318,056  (features only)
+  Capped at 99.5th pctile :          0  (cap = 417.4370 kWh)
+  log1p transform applied  :        yes
+  Final usable rows        :  2,676,386
+
+  Target  energy_delta_k  [log1p(kWh)]:
+    mean  =     0.147769
+    std   =     0.905889
+    min   =     0.000000
+    max   =     6.036526
+==============================================================
+
+[3b] Splitting
+  train 1,873,470  val   401,458  test   401,458  — no leakage
+[3c] Scaling + sequence generation
+  features (17): ['weekday', 'voltage', 'current', 'power', 'frequency', 'power_factor', 'sensor_temperature', 'cpu_usage_percent', 'WORKSTATION_CPU_POWER', 'WORKSTATION_CPU_TEMP', 'WORKSTATION_GPU', 'WORKSTATION_GPU_POWER', 'WORKSTATION_GPU_TEMP', 'WORKSTATION_RAM', 'ram_power_watts', 'hour', 'voltage_lag1']
+  X_train (1873350, 120, 17)  X_val (401338, 120, 17)  X_test (401338, 120, 17)
+  RAM (train seq) ≈ 15.29 GB   GPU per batch ≈ 0.1 MB
+[3d] Saving canonical splits
+  splits → D:\pipeline5_2\results\splits\horizon_300
+[3e] NiOA optimisation  (agents=6  iter=6  subset=30%  limit=1800s/trial  loss=huber)
+Starting Ninja Optimisation Algorithm...
+
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+Iteration 1/6
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 4.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 5.
+
+  [TimeLimitCallback] 1800s limit reached — stopping trial at epoch 6.
+
+
+
+
+
+(AshCEP) PS D:\pipeline5_2\notebooks> python evaluate_filtered.py
+GPU ready — 1 device(s), memory growth enabled.
+
+=================================================================
+  Post-hoc filtered evaluation — k = 60 s
+  Max plausible ΔE : 16.6667 kWh  (log1p = 2.8717)
+=================================================================
+
+Loading test arrays ...
+  X_test shape : (401610, 120, 17)
+  y_test shape : (401610,)
+  y_test range : [0.0000, 6.0361]  (log1p space)
+
+  Artefact filter (|ΔE| ≤ 16.67 kWh):
+    Total test samples     :   401,610
+    Clean samples retained :   358,982  (89.39%)
+    Artefacts removed      :    42,628  (10.61%)
+
+  X_test_clean shape : (358982, 120, 17)
+
+Loading model from : D:\pipeline5_2\results\nioa_drnn\k60_seq120_20260408_141156\model\NiOA_DRNN_k60.h5
+2026-04-11 12:35:46.871226: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-11 12:35:47.350577: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9591 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 128)         41984
+ l)
+
+ lstm_1 (LSTM)               (None, 120, 64)           49408
+
+ dropout (Dropout)           (None, 120, 64)           0
+
+ lstm_2 (LSTM)               (None, 120, 64)           33024
+
+ dropout_1 (Dropout)         (None, 120, 64)           0
+
+ batch_normalization (BatchN  (None, 120, 64)          256
+ ormalization)
+
+ global_max_pooling1d (Globa  (None, 64)               0
+ lMaxPooling1D)
+
+ dense (Dense)               (None, 64)                4160
+
+ dropout_2 (Dropout)         (None, 64)                0
+
+ dense_1 (Dense)             (None, 25)                1625
+
+ dense_2 (Dense)             (None, 1)                 26
+
+=================================================================
+Total params: 130,483
+Trainable params: 130,355
+Non-trainable params: 128
+_________________________________________________________________
+
+Predicting on FULL test set (original, unfiltered) ...
+2026-04-11 12:35:49.398723: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2026-04-11 12:35:50.065645: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+25100/25100 [==============================] - 310s 12ms/step
+
+Predicting on CLEAN test set (artefacts removed) ...
+22436/22436 [==============================] - 263s 12ms/step
+
+=================================================================
+  RESULTS COMPARISON — k = 60 s
+=================================================================
+
+  Metric           Full test set        Clean subset
+  ──────────          (n=401610)          (n=358982)
+  MAE                44.2535 kWh          0.0011 kWh
+  RMSE              135.8383 kWh          0.0018 kWh
+  R2                 -0.1187             -0.0818
+  sMAPE             107.2332   %         96.2198   %
+
+  Saved to : D:\pipeline5_2\results\nioa_drnn\k60_seq120_20260408_141156\metrics_filtered.json
+
+=================================================================
+  SUMMARY
+=================================================================
+  Full test set  : MAE = 44.2535 kWh | R² = -0.1187
+  Clean subset   : MAE = 0.0011 kWh | R² = -0.0818
+
+  Improvement in MAE : 44.2523 kWh reduction
+  The clean subset represents 89.4% of the test set.
+=================================================================
+
+  Comparison plot saved to : D:\pipeline5_2\results\nioa_drnn\k60_seq120_20260408_141156\predictions\comparison_filtered_vs_full.png
+
+  (AshCEP) PS D:\pipeline5_2\notebooks> python evaluate_filtered_300.py
+GPU ready — 1 device(s), memory growth enabled.
+
+=================================================================
+  Post-hoc filtered evaluation — k = 300 s
+  Max plausible ΔE : 83.3333 kWh  (log1p = 4.4348)
+=================================================================
+
+Loading test arrays ...
+  X_test shape : (401338, 120, 17)
+  y_test shape : (401338,)
+  y_test range : [0.0000, 6.0365]  (log1p space)
+
+  Artefact filter (|ΔE| ≤ 83.33 kWh):
+    Total test samples     :   401,338
+    Clean samples retained :   339,448  (84.58%)
+    Artefacts removed      :    61,890  (15.42%)
+
+  X_test_clean shape : (339448, 120, 17)
+
+Loading model from : D:\pipeline5_2\results\nioa_drnn\k300_seq120_20260410_080632\model\NiOA_DRNN_k300.h5
+2026-04-11 12:54:05.601473: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-11 12:54:06.073506: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9591 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 128)         41984     
+ l)
+
+ lstm_1 (LSTM)               (None, 120, 64)           49408     
+
+ dropout (Dropout)           (None, 120, 64)           0
+
+ batch_normalization (BatchN  (None, 120, 64)          256       
+ ormalization)
+
+ global_max_pooling1d (Globa  (None, 64)               0
+ lMaxPooling1D)
+
+ dense (Dense)               (None, 64)                4160
+
+ dropout_1 (Dropout)         (None, 64)                0
+
+ dense_1 (Dense)             (None, 25)                1625
+
+ dense_2 (Dense)             (None, 1)                 26
+
+=================================================================
+Total params: 97,459
+Trainable params: 97,331
+Non-trainable params: 128
+_________________________________________________________________
+
+Predicting on FULL test set (original, unfiltered) ...
+2026-04-11 12:54:07.672984: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2026-04-11 12:54:08.464214: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+25083/25083 [==============================] - 199s 8ms/step
+
+Predicting on CLEAN test set (artefacts removed) ...
+21215/21215 [==============================] - 163s 8ms/step
+
+=================================================================
+  RESULTS COMPARISON — k = 300 s
+=================================================================
+
+  Metric           Full test set        Clean subset
+  ──────────          (n=401338)          (n=339448)
+  MAE                64.3109 kWh          0.0030 kWh
+  RMSE              163.7650 kWh          0.0033 kWh
+  R2                 -0.1823             -0.2652
+  sMAPE              76.8596   %         54.4101   %
+
+  Saved to : D:\pipeline5_2\results\nioa_drnn\k300_seq120_20260410_080632\metrics_filtered.json
+
+=================================================================
+  SUMMARY
+=================================================================
+  Full test set  : MAE = 64.3109 kWh | R² = -0.1823
+  Clean subset   : MAE = 0.0030 kWh | R² = -0.2652
+
+  Improvement in MAE : 64.3079 kWh reduction
+  The clean subset represents 84.6% of the test set.
+=================================================================
+
+  Comparison plot saved to : D:\pipeline5_2\results\nioa_drnn\k300_seq120_20260410_080632\predictions\comparison_filtered_vs_full.png
+
+AshCEP) PS D:\pipelinev5_1 - Copy\notebooks> python evaluate_filtered_900.py    
+GPU ready — 1 device(s), memory growth enabled.
+
+=================================================================
+  Post-hoc filtered evaluation — k = 900 s
+  Max plausible ΔE : 250.0000 kWh  (log1p = 5.5255)
+=================================================================
+
+Loading test arrays ...
+  X_test shape : (401227, 120, 17)
+  y_test shape : (401227,)
+  y_test range : [0.0080, 417.7860]  (log1p space)
+
+  Artefact filter (|ΔE| ≤ 250.00 kWh):
+    Total test samples     :   401,227
+    Clean samples retained :   336,631  (83.90%)
+    Artefacts removed      :    64,596  (16.10%)
+
+  X_test_clean shape : (336631, 120, 17)
+
+Loading model from : D:\pipelinev5_1 - Copy\results\nioa_drnn\k900_seq120_20260405_162225\model\NiOA_DRNN_k900.h5
+2026-04-11 13:31:01.652017: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-11 13:31:02.162965: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9591 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 256)         149504
+ l)
+
+ lstm_1 (LSTM)               (None, 120, 128)          197120
+
+ dropout (Dropout)           (None, 120, 128)          0
+
+ batch_normalization (BatchN  (None, 120, 128)         512
+ ormalization)
+
+ global_max_pooling1d (Globa  (None, 128)              0
+ lMaxPooling1D)
+
+ dense (Dense)               (None, 64)                8256
+
+ dropout_1 (Dropout)         (None, 64)                0
+
+ dense_1 (Dense)             (None, 25)                1625
+
+ dense_2 (Dense)             (None, 1)                 26
+
+=================================================================
+Total params: 357,043
+Trainable params: 356,787
+Non-trainable params: 256
+_________________________________________________________________
+
+Predicting on FULL test set (original, unfiltered) ...
+2026-04-11 13:31:04.004572: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2026-04-11 13:31:04.695114: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+25076/25076 [==============================] - 199s 8ms/step
+
+Predicting on CLEAN test set (artefacts removed) ...
+21039/21039 [==============================] - 166s 8ms/step
+
+=================================================================
+  RESULTS COMPARISON — k = 900 s
+=================================================================
+
+  Metric           Full test set        Clean subset
+  ──────────          (n=401227)          (n=336631)
+  MAE         1720368562621.1348 kWh          0.0057 kWh
+  RMSE        4287735406400.7646 kWh          0.0063 kWh
+  R2                 -0.1919              0.0063
+  sMAPE              60.2413   %         33.4251   %
+
+  Saved to : D:\pipelinev5_1 - Copy\results\nioa_drnn\k900_seq120_20260405_162225\metrics_filtered.json
+
+=================================================================
+  SUMMARY
+=================================================================
+  Full test set  : MAE = 1720368562621.1348 kWh | R² = -0.1919
+  Clean subset   : MAE = 0.0057 kWh | R² = 0.0063
+
+  Improvement in MAE : 1720368562621.1292 kWh reduction
+  The clean subset represents 83.9% of the test set.
+=================================================================
+
+  Comparison plot saved to : D:\pipelinev5_1 - Copy\results\nioa_drnn\k900_seq120_20260405_162225\predictions\comparison_filtered_vs_full.png
+(AshCEP) PS D:\pipelinev5_1 - Copy\notebooks> python evaluate_filtered_1800.py
+GPU ready — 1 device(s), memory growth enabled.
+
+=================================================================
+  Post-hoc filtered evaluation — k = 1800 s
+  Max plausible ΔE : 500.0000 kWh  (log1p = 6.2166)
+=================================================================
+
+Loading test arrays ...
+  X_test shape : (398101, 120, 17)
+  y_test shape : (398101,)
+  y_test range : [0.0160, 417.7960]  (log1p space)
+
+  Artefact filter (|ΔE| ≤ 500.00 kWh):
+    Total test samples     :   398,101
+    Clean samples retained :   328,646  (82.55%)
+    Artefacts removed      :    69,455  (17.45%)
+
+  X_test_clean shape : (328646, 120, 17)
+
+Loading model from : D:\pipelinev5_1 - Copy\results\nioa_drnn\k1800_seq120_20260406_205502\model\NiOA_DRNN_k1800.h5
+2026-04-11 13:38:35.369128: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2026-04-11 13:38:35.784205: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1616] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 9591 MB memory:  -> device: 0, name: NVIDIA GeForce RTX 3060, pci bus id: 0000:01:00.0, compute capability: 8.6
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 128)         41984
+ l)
+
+ lstm_1 (LSTM)               (None, 120, 64)           49408
+
+ dropout (Dropout)           (None, 120, 64)           0
+
+ lstm_2 (LSTM)               (None, 120, 64)           33024
+
+ dropout_1 (Dropout)         (None, 120, 64)           0
+
+ batch_normalization (BatchN  (None, 120, 64)          256
+ ormalization)
+
+ global_max_pooling1d (Globa  (None, 64)               0
+ lMaxPooling1D)
+
+ dense (Dense)               (None, 64)                4160
+
+ dropout_2 (Dropout)         (None, 64)                0
+
+ dense_1 (Dense)             (None, 25)                1625
+
+ dense_2 (Dense)             (None, 1)                 26
+
+=================================================================
+Total params: 130,483
+Trainable params: 130,355
+Non-trainable params: 128
+_________________________________________________________________
+
+Predicting on FULL test set (original, unfiltered) ...
+2026-04-11 13:38:37.473773: I tensorflow/stream_executor/cuda/cuda_dnn.cc:384] Loaded cuDNN version 8100
+2026-04-11 13:38:38.155512: I tensorflow/stream_executor/cuda/cuda_blas.cc:1614] TensorFloat-32 will be used for the matrix multiplication. This will only be logged once.
+24881/24881 [==============================] - 255s 10ms/step
+
+Predicting on CLEAN test set (artefacts removed) ...
+20540/20540 [==============================] - 201s 10ms/step
+
+=================================================================
+  RESULTS COMPARISON — k = 1800 s
+=================================================================
+
+  Metric           Full test set        Clean subset
+  ──────────          (n=398101)          (n=328646)
+  MAE         1864366968359.3152 kWh          0.0187 kWh
+  RMSE        4463575945136.7617 kWh          0.0216 kWh
+  R2                 -0.2113             -1.9589
+  sMAPE              73.9719   %         47.3381   %
+
+  Saved to : D:\pipelinev5_1 - Copy\results\nioa_drnn\k1800_seq120_20260406_205502\metrics_filtered.json
+
+=================================================================
+  SUMMARY
+=================================================================
+  Full test set  : MAE = 1864366968359.3152 kWh | R² = -0.2113
+  Clean subset   : MAE = 0.0187 kWh | R² = -1.9589
+
+  Improvement in MAE : 1864366968359.2964 kWh reduction
+  The clean subset represents 82.6% of the test set.
+=================================================================
+
+  Comparison plot saved to : D:\pipelinev5_1 - Copy\results\nioa_drnn\k1800_seq120_20260406_205502\predictions\comparison_filtered_vs_full.png
+
+  (AshCEP) PS D:\pipeline5_2\notebooks> python evaluate_filtered_900.py
+2026-04-13 13:53:39.881040: E tensorflow/stream_executor/cuda/cuda_driver.cc:265] failed call to cuInit: CUDA_ERROR_NO_DEVICE: no CUDA-capable device is detected
+2026-04-13 13:53:39.886580: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:169] retrieving CUDA diagnostic information for host: DESKTOP-O6BI3QT
+2026-04-13 13:53:39.886733: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:176] hostname: DESKTOP-O6BI3QT
+No GPU detected — training will run on CPU.
+
+=================================================================
+  Post-hoc filtered evaluation — k = 900 s
+  Max plausible ΔE : 250.0000 kWh  (log1p = 5.5255)
+=================================================================
+
+Loading test arrays ...
+  X_test shape : (401227, 120, 17)
+  y_test shape : (401227,)
+  y_test range : [0.0080, 6.0366]  (log1p space)
+
+  Artefact filter (|ΔE| ≤ 250.00 kWh):
+    Total test samples     :   401,227
+    Clean samples retained :   336,631  (83.90%)
+    Artefacts removed      :    64,596  (16.10%)
+
+Loading model from : D:\pipeline5_2\results\nioa_drnn\k900_seq120_20260411_212307\model\NiOA_DRNN_k900.h5
+2026-04-13 13:53:39.945499: I tensorflow/core/platform/cpu_feature_guard.cc:193] This TensorFlow binary is optimized with oneAPI Deep Neural Network Library (oneDNN) to use the following CPU instructions in performance-critical operations:  AVX AVX2
+To enable them in other operations, rebuild TensorFlow with the appropriate compiler flags.
+Model: "NiOA_DRNN"
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #
+=================================================================
+ bidirectional (Bidirectiona  (None, 120, 128)         41984
+ l)
+
+ lstm_1 (LSTM)               (None, 120, 64)           49408
+
+ dropout (Dropout)           (None, 120, 64)           0
+
+ batch_normalization (BatchN  (None, 120, 64)          256
+ ormalization)
+
+ global_max_pooling1d (Globa  (None, 64)               0
+ lMaxPooling1D)
+
+ dense (Dense)               (None, 64)                4160
+
+ dropout_1 (Dropout)         (None, 64)                0
+
+ dense_1 (Dense)             (None, 25)                1625
+
+ dense_2 (Dense)             (None, 1)                 26
+
+=================================================================
+Total params: 97,459
+Trainable params: 97,331
+Non-trainable params: 128
+_________________________________________________________________
+
+Predicting on FULL test set (original, unfiltered) ...
+25076/25076 [==============================] - 236s 9ms/step
+
+Extracting CLEAN test set predictions...
+  Clean predictions extracted (n=336,626)
+
+=================================================================
+  RESULTS COMPARISON — k = 900 s
+=================================================================
+
+  Metric           Full test set        Clean subset
+  ──────────          (n=401227)          (n=336631)
+  MAE                67.1421 kWh          0.0058 kWh
+  RMSE              167.3284 kWh          0.0064 kWh
+  R2                 -0.1919             -0.0605
+  sMAPE              61.0231   %         34.3604   %
+
+  Saved to : D:\pipeline5_2\results\nioa_drnn\k900_seq120_20260411_212307\metrics_filtered.json
+
+=================================================================
+  SUMMARY
+=================================================================
+  Full test set  : MAE = 67.1421 kWh | R² = -0.1919
+  Clean subset   : MAE = 0.0058 kWh | R² = -0.0605
+
+  Improvement in MAE : 67.1362 kWh reduction
+  The clean subset represents 83.9% of the test set.
+=================================================================
+
+  Comparison plot saved to : D:\pipeline5_2\results\nioa_drnn\k900_seq120_20260411_212307\predictions\comparison_filtered_vs_full.png
+
+(AshCEP) PS D:\pipeline5_2\notebooks> 
