@@ -1,0 +1,23 @@
+{
+    "horizon_k": 60,
+    "max_power_watts": 1000,
+    "max_plausible_kwh": 16.666666666666668,
+    "n_test_total": 401610,
+    "n_test_clean": 358982,
+    "n_artefacts_removed": 42628,
+    "pct_artefacts": 10.6143,
+    "metrics_full_test": {
+        "MAE": 44.25346780601379,
+        "RMSE": 135.83834624632888,
+        "R2": -0.1187256576764033,
+        "sMAPE": 107.23323895831152
+    },
+    "metrics_clean_subset": {
+        "MAE": 0.001143388749648534,
+        "RMSE": 0.001824012668759771,
+        "R2": -0.08180525615527157,
+        "sMAPE": 96.2198022510909
+    },
+    "model_path": "D:\\pipeline5_2\\results\\nioa_drnn\\k60_seq120_20260408_141156\\model\\NiOA_DRNN_k60.h5",
+    "note": "metrics_clean_subset reports performance on the physically plausible subset of the test set (energy increment \u2264 16.67 kWh for k=60s at 1000W max). metrics_full_test includes all samples including counter-reset artefacts that dominate the error. Both are reported for transparency."
+}

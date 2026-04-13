@@ -1,0 +1,8 @@
+{
+    "lstm_layers": 3,
+    "units": 128,
+    "dropout": 0.44816957368195837,
+    "optimizer": "adamw",
+    "learning_rate": 0.0003308383908988408,
+    "batch_size": 32
+}

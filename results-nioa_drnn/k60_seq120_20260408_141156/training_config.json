@@ -1,0 +1,28 @@
+{
+    "horizon_k": 60,
+    "sequence_length": 120,
+    "gap_tolerance": 2.0,
+    "target_cap_percentile": 99.5,
+    "log_transform": true,
+    "loss_function": "huber",
+    "huber_delta": 1.0,
+    "train_ratio": 0.7,
+    "val_ratio": 0.15,
+    "random_seed": 42,
+    "final_batch_size": 16,
+    "opt_subset_ratio": 0.3,
+    "n_agents": 6,
+    "max_iterations": 6,
+    "final_epochs": 40,
+    "final_patience": 7,
+    "best_params": {
+        "lstm_layers": 3,
+        "units": 64,
+        "dropout": 0.3061753482887407,
+        "optimizer": "adamw",
+        "learning_rate": 0.000466530301221283,
+        "batch_size": 32
+    },
+    "best_nioa_loss": 7.02116267348174e-06,
+    "completed_at": "2026-04-09T08:47:54.172102"
+}
