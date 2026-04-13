@@ -1,0 +1,14 @@
+{
+    "model": "svr",
+    "horizon": 1800,
+    "metrics": {
+        "MAE": 72.76999966078083,
+        "RMSE": 174.19616158453024,
+        "R2": -0.21130012462674874,
+        "sMAPE": 63.63265197618292
+    },
+    "log_transform": true,
+    "meta": {
+        "training_subset": 50000
+    }
+}

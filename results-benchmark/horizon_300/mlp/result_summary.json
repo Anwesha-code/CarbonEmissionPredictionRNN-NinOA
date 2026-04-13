@@ -1,0 +1,16 @@
+{
+    "model": "mlp",
+    "horizon": 300,
+    "metrics": {
+        "MAE": 64.33554675494516,
+        "RMSE": 163.74889134577776,
+        "R2": -0.18203704711723123,
+        "sMAPE": 162.6372493536194
+    },
+    "log_transform": true,
+    "meta": {
+        "training_rows": 100000,
+        "capped_from": 2274688,
+        "n_iter": 62
+    }
+}

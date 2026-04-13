@@ -1,0 +1,14 @@
+{
+    "model": "xgboost",
+    "horizon": 1800,
+    "metrics": {
+        "MAE": 72.77346487901113,
+        "RMSE": 174.1917179789855,
+        "R2": -0.2112383268092881,
+        "sMAPE": 73.94652233496672
+    },
+    "log_transform": true,
+    "meta": {
+        "best_ntree_limit": 12
+    }
+}

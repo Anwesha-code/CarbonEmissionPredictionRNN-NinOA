@@ -1,0 +1,15 @@
+{
+    "model": "linear_regression",
+    "horizon": 60,
+    "metrics": {
+        "MAE": 44.25986563597951,
+        "RMSE": 135.8479368861972,
+        "R2": -0.11874602859453498,
+        "sMAPE": 130.43616547896102
+    },
+    "log_transform": true,
+    "meta": {
+        "training_rows": 100000,
+        "capped_from": 2276226
+    }
+}
