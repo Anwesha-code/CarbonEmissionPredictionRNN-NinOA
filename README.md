@@ -6,9 +6,6 @@ Anwesha Singh
 B.Tech (Computer Science Engineering)  
 Manipal University Jaipur  
  
-
----
-
 ## Overview
 
 This project aims to present a reproducible deep learning framework for short-term energy increment prediction in data centre environments. The proposed project uses Bidirectional Deep Recurrent Neural Network (DRNN) architecture, optimised using the Ninja Optimisation Algorithm (NiOA), to work on complex temporal dependencies in multi-sensor energy data.
@@ -89,7 +86,6 @@ Preprocessing steps include:
 - Z-score based outlier removal
 - Feature engineering (temporal features, lag variables)
 - Train-only standardisation
----
 
 ## Directory Structure
 
@@ -198,8 +194,6 @@ The experimental workflow follows these steps:
 - DRNN + NiOA  
 
 
----
-
 ## Execution Order
 
 ### Step 1 — Prepare environment
@@ -243,8 +237,6 @@ Run `notebooks/04_Multi_Horizon_Analysis.ipynb` to:
 - Build the full cross-model, cross-horizon comparison table
 - Generate MAE vs horizon, R² vs horizon, and bar chart figures
 
----
-
 ## Key Design Decisions
 
 | Decision | Rationale |
@@ -256,8 +248,6 @@ Run `notebooks/04_Multi_Horizon_Analysis.ipynb` to:
 | tf.data generator | Avoids GPU OOM errors on large sequence arrays |
 | sMAPE with epsilon | Prevents division-by-zero for near-zero increments |
 
----
-
 ## Evaluation Metrics
 
 | Metric | Formula |
@@ -266,8 +256,6 @@ Run `notebooks/04_Multi_Horizon_Analysis.ipynb` to:
 | RMSE | √ mean( (y − ŷ)² ) |
 | R² | 1 − SS_res / SS_tot |
 | sMAPE | 100 × mean( 2|y−ŷ| / (|y|+|ŷ|+ε) ) |
-
----
 
 ## Notes on Short-Horizon Performance
 
